@@ -1,0 +1,113 @@
+
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+  --black-color: #000;
+  --dark-bg: rgb(9, 9, 9);
+  --primary-color: rgb(229, 9, 20);
+  --gray-bg: rgb(45, 45, 45);
+  --gray-color: rgb(25, 25, 25);
+  --hover-gray-color: rgb(65, 65, 65);
+  --gradient-bg: linear-gradient(90deg, #333 5%, #181818 95%);
+  --color-white: #fff;
+}
+
+body {
+  font-family: 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  /* -moz-osx-font-smoothing: grayscale; */
+}
+
+
+
+
+.container {
+  max-width: 1340px;
+  /* max-width: calc( 100% - 3rem ); */
+  width: 100%;
+  margin: 0 auto;
+  padding: 30px 0;  
+
+ 
+}
+
+.d-flex {
+  display: flex;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.reverse-row {
+  flex-direction: row-reverse;
+}
+.space-between {
+  justify-content: space-between;
+  align-items: center;
+}
+.align-items-center {
+  align-items: center;
+}
+
+.center {
+  align-items: center;
+  justify-content: center;
+}
+.start {
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.start-center {
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.bold {
+  font-weight: bold;
+}
+.rounded-1 {
+  border-radius: 3px;
+}
+
+.bg-dark {
+  background-color: var(--dark-bg);
+}
+
+.text-white {
+  color: var(--color-white);
+}
+.bg-gray {
+  background-color: var(--gray-bg);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.gap {
+  gap: 10px;
+}
+
+.d-block {
+  display: block;
+}
+
+.wrap{
+  flex-wrap: wrap;
+}
+
+
+
