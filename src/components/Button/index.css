@@ -1,0 +1,21 @@
+.primary-btn,.primary-outline-btn {
+    padding: 10px 30px;
+    /* background-color: var(--primary-bg); */
+    /* color: white; */
+    cursor: pointer;
+    transition: all .3s ease-in-out ;
+}
+
+.primary-outline-btn {
+    border: 2px solid var(--primary-bg);
+
+}
+.primary-outline-btn:hover{
+    color: white;
+    background-color: var(--primary-bg);
+}
+.primary-btn:hover{
+    opacity: .7;
+    transition: all .3s ease-in-out ;
+
+}

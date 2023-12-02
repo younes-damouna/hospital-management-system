@@ -9,6 +9,7 @@
 
 :root {
   --black-color: #000;
+  --primary-bg:#12cce2;
   --dark-bg: rgb(9, 9, 9);
   --primary-color: rgb(229, 9, 20);
   --gray-bg: rgb(45, 45, 45);
@@ -37,6 +38,15 @@ body {
   padding: 30px 0;  
 
  
+}
+.fs-sm{
+  font-size: 12px;
+}
+.fs-md{
+font-size:   24px;}
+
+.fs-lg{
+  font-size: 48px;
 }
 
 .d-flex {
@@ -85,12 +95,20 @@ body {
 .bg-dark {
   background-color: var(--dark-bg);
 }
-
+.bg-primary{
+  background-color: var(--primary-bg);
+}
 .text-white {
   color: var(--color-white);
 }
 .bg-gray {
   background-color: var(--gray-bg);
+}
+.bg-white{
+  background-color: white;
+}
+.text-primary{
+  color: var(--primary-bg);
 }
 
 .text-center {
