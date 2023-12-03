@@ -15,7 +15,7 @@ const AppointmentForm = () => {
 
   const [doctorTimes, setDoctorTimes] = useState([]);
   const handleClickSchudle = async () => {
-    setRes({"Status":""})
+    setRes({ Status: "" });
     try {
       const PostData = await request({
         route: "add/appointment",
@@ -41,7 +41,7 @@ const AppointmentForm = () => {
     };
     getDoctorTime();
   }, []);
-console.log(res.status);
+  console.log(res.status);
   return (
     <div className="">
       {doctorTimes.length !== 0 ? (
@@ -50,7 +50,11 @@ console.log(res.status);
           <form action="" method="post">
             <div className="form-group d-flex column">
               {res.status === "Success" ? (
-                <AlertMessage message={"Appointment Scheduled"} type={"success"} showing={true} />
+                <AlertMessage
+                  message={"Appointment Scheduled"}
+                  type={"success"}
+                  showing={true}
+                />
               ) : (
                 <></>
               )}
@@ -62,9 +66,10 @@ console.log(res.status);
                 }}
               >
                 {Array.isArray(doctorTimes)
-                  ? doctorTimes?.map((doct,index) => {
+                  ? doctorTimes?.map((doct, index) => {
                       return (
-                        <option key={index}
+                        <option
+                          key={index}
                           value={JSON.stringify({
                             doctor_id: doct.doctor_id,
                             patient_id: patient_id,
@@ -72,7 +77,7 @@ console.log(res.status);
                             id: doct.id,
                           })}
                         >
-                          {doct.doctor_name} {doct.date_time} 
+                          {doct.doctor_name} {doct.date_time}
                         </option>
                       );
                     })

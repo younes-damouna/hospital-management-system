@@ -30,70 +30,67 @@ const PatientPanel = ({ activeMainTab }) => {
 
   return (
     <div className="panel w-100">
-      {/* PatientPanel */}
-      {/* Medications */}
-      {activeMainTab==="medication"?
-      <div className="table-container">
-        Medication History
-      <table>
-        <thead>
-          <tr>
-            <th>Doctor Name</th>
-            <th>Date Issued</th>
-            <th>Medication Details</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          {medications.map((med) => {
-            return (
-              <>
-                <tr>
-                  <td>{med.doctor_name}</td>
-                  <td>{med.date_issued}</td>
-                  <td className="medication">{med.details}</td>
-                  <td>
-                    {med.is_approved === 0 ? "Approved" : "Not Approved"}
-                  </td>
-                </tr>
-              </>
-            );
-          })}
-        </tbody>
-      </table>
-    </div>
-      :
-      <div className="table-container">
-      Appointments
-      <div className={`d-flex gap wrap `}>
-        <Button
-          text={"View Appointments"}
-          onClick={() => {
-            setActivetab("View Appointments");
-          }}
-          className={`menu-item ${activeTab==="View Appointments"?'active':''}`}
-        />
-        <Button
-          text={"Add Appointment"}
-          onClick={(e) => {
-            setActivetab("add appointment");
-          }}
-          className={`menu-item ${activeTab==="add appointment"?'active':''}`}
-        />
-        {/* <Button text={"View Appointments"} className={"menu-item"} /> */}
-        {/* get appointments and doctors */}
-      </div>
-      {activeTab === "View Appointments" ? (
-        <Appointments appointments={[]} user_id={patient_id} />
+    
+      {activeMainTab === "medication" ? (
+        <div className="table-container">
+          Medication History
+          <table>
+            <thead>
+              <tr>
+                <th>Doctor Name</th>
+                <th>Date Issued</th>
+                <th>Medication Details</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {medications.map((med) => {
+                return (
+                  <>
+                    <tr>
+                      <td>{med.doctor_name}</td>
+                      <td>{med.date_issued}</td>
+                      <td className="medication">{med.details}</td>
+                      <td>
+                        {med.is_approved === 0 ? "Approved" : "Not Approved"}
+                      </td>
+                    </tr>
+                  </>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
       ) : (
-        <AppointmentForm />
+        <div className="table-container">
+          Appointments
+          <div className={`d-flex gap wrap `}>
+            <Button
+              text={"View Appointments"}
+              onClick={() => {
+                setActivetab("View Appointments");
+              }}
+              className={`menu-item ${
+                activeTab === "View Appointments" ? "active" : ""
+              }`}
+            />
+            <Button
+              text={"Add Appointment"}
+              onClick={(e) => {
+                setActivetab("add appointment");
+              }}
+              className={`menu-item ${
+                activeTab === "add appointment" ? "active" : ""
+              }`}
+            />
+          </div>
+          {activeTab === "View Appointments" ? (
+            <Appointments appointments={[]} user_id={patient_id} />
+          ) : (
+            <AppointmentForm />
+          )}
+        </div>
       )}
-    </div>
-      }
-      
-
-      {/* Manage Appointments */}
-     
     </div>
   );
 };
