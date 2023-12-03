@@ -4,7 +4,7 @@ import logo from "./../../assets/images/logo.png"
 import Button from '../Button'
 const Navbar = () => {
   return (
-    <div className='d-flex space-between'>
+    <div className='d-flex space-between bg-white'>
         <div className='logo-container'>
             <img className='logo' src={logo} alt="" />
         </div>

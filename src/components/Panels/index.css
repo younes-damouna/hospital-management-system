@@ -1,0 +1,31 @@
+.panel{
+    background-color: white;
+    width: 100%;
+    /* height: 100vh; */
+    padding: 10px;
+}
+.table-container{
+    /* padding: 10px; */
+    /* border: 1px solid; */
+    margin-top: 10px;
+    /* border: 1px solid; */
+    /* border-radius: 5px; */
+}
+table{
+    border-collapse: collapse;
+   
+
+}
+table,td,th{
+    text-align: start;
+}
+td,th,tr{
+    border: 1px solid;
+    padding-inline: 10px;
+    padding-block: 10px;
+    border-radius: 5px;
+
+}
+.medication{
+    width: 50%;
+}
