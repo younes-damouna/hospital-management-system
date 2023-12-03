@@ -1,0 +1,23 @@
+.form-img{
+    width: 500px;
+}
+
+.form{
+    width: 40%;
+    padding: 40px;
+    background-color: #f7f7f7;
+    border-radius: 20px;
+    box-shadow: 1px 1px 5px 5px gray;
+    
+}
+
+label, input{
+    font-size: 16px;
+    padding: 10px 0;
+    /* color: white; */
+    border-radius: 5px;
+    
+}
+input{
+    padding-inline:10px ;
+}

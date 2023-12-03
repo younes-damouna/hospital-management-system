@@ -1,8 +1,8 @@
 import React from 'react'
  import "./index.css"
-const Button = ({text, className}) => {
+const Button = ({text, className,onClick}) => {
   return (
-    <div className={`${className} rounded-1 fs-md`}>{text}</div>
+    <div className={`${className} rounded-1 fs-md`} onClick={onClick}>{text}</div>
   )
 }
 
