@@ -1,43 +1,99 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { request } from "../../../helpers/apiCalls/getMedications";
+import Button from "../../Button";
+import Appointments from "../../shared/Appointments";
+import AppointmentForm from "../../Forms/AppointmentForm";
 
-const PatientPanel = () => {
+const PatientPanel = ({ activeMainTab }) => {
+  const [medications, setMedications] = useState([]);
+  const [activeTab, setActivetab] = useState("View Appointments");
+  const patient_id = 1;
+  useEffect(() => {
+    const getMedications = async () => {
+      try {
+        const responseMedications = await request({
+          route: "get/medicationsByPatient",
+          method: "POST",
+
+          body: {
+            patient_id: patient_id,
+          },
+        });
+        setMedications(responseMedications);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getMedications();
+  }, []);
+  console.log(medications);
+
   return (
-    <div>
-      PatientPanel
+    <div className="panel w-100">
+      {/* PatientPanel */}
+      {/* Medications */}
+      {activeMainTab==="medication"?
       <div className="table-container">
-        <table>
-          <thead>
-            <tr>
-            
-              <th>Doctor Name</th>
-              <th>Date Issued</th>
-              <th>Medication Details</th>
-              <th>Status</th>
-
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Younes Damouna</td>
-              <td>12-11-2023</td>
-              <td className="medication">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, soluta nulla? Inventore dolorem eius adipisci ipsa temporibus voluptates dolore dolores doloremque aspernatur atque, similique nesciunt odio repudiandae culpa praesentium quibusdam?</td>
-                <td>approved</td>
-            </tr>
-            <tr>
-              <td>Younes Damouna</td>
-              <td>12-11-2023</td>
-              <td className="medication">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, soluta nulla? Inventore dolorem eius adipisci ipsa temporibus voluptates dolore dolores doloremque aspernatur atque, similique nesciunt odio repudiandae culpa praesentium quibusdam?</td>
-                <td>approved</td>
-            </tr>
-            <tr>
-              <td>Younes Damouna</td>
-              <td>12-11-2023</td>
-              <td className="medication">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, soluta nulla? Inventore dolorem eius adipisci ipsa temporibus voluptates dolore dolores doloremque aspernatur atque, similique nesciunt odio repudiandae culpa praesentium quibusdam?</td>
-                <td>approved</td>
-            </tr>
-          </tbody>
-        </table>
+        Medication History
+      <table>
+        <thead>
+          <tr>
+            <th>Doctor Name</th>
+            <th>Date Issued</th>
+            <th>Medication Details</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {medications.map((med) => {
+            return (
+              <>
+                <tr>
+                  <td>{med.doctor_name}</td>
+                  <td>{med.date_issued}</td>
+                  <td className="medication">{med.details}</td>
+                  <td>
+                    {med.is_approved === 0 ? "Approved" : "Not Approved"}
+                  </td>
+                </tr>
+              </>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+      :
+      <div className="table-container">
+      Appointments
+      <div className={`d-flex gap wrap `}>
+        <Button
+          text={"View Appointments"}
+          onClick={() => {
+            setActivetab("View Appointments");
+          }}
+          className={`menu-item ${activeTab==="View Appointments"?'active':''}`}
+        />
+        <Button
+          text={"Add Appointment"}
+          onClick={(e) => {
+            setActivetab("add appointment");
+          }}
+          className={`menu-item ${activeTab==="add appointment"?'active':''}`}
+        />
+        {/* <Button text={"View Appointments"} className={"menu-item"} /> */}
+        {/* get appointments and doctors */}
       </div>
+      {activeTab === "View Appointments" ? (
+        <Appointments appointments={[]} user_id={patient_id} />
+      ) : (
+        <AppointmentForm />
+      )}
+    </div>
+      }
+      
+
+      {/* Manage Appointments */}
+     
     </div>
   );
 };

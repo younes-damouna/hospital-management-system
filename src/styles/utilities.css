@@ -9,6 +9,9 @@
 .pointer{
   cursor: pointer;
 }
+.d-none{
+  display: none;
+}
 :root {
   --black-color: #000;
   --primary-bg:#12cce2;
@@ -74,7 +77,9 @@ font-size:   24px;}
 .align-items-center {
   align-items: center;
 }
-
+.w-100{
+  width: 100%;
+}
 .center {
   align-items: center;
   justify-content: center;

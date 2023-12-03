@@ -1,0 +1,12 @@
+.alert {
+    /* width: 300px; */
+    border-radius: 20px;
+    /* background-color: rgb(233, 197, 197); */
+    /* color: var(--primary-bg); */
+    padding: 20px;
+    height: 100px;
+    
+}
+.success{
+    background-color: greenyellow;
+}
