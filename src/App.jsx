@@ -17,12 +17,14 @@ import AuthPage from "./pages/AuthPage";
 function App() {
   const [menu, setMenu] = useState("doctor");
   // setMenu("admin");
+  const [user,setUser]=useState(JSON.parse(localStorage.getItem("logged_in"))|| [])
+  console.log(user);
   return (
     <>
       <div className="container">
       
         <BrowserRouter>
-        <Navbar />
+        <Navbar  user={user}/>
           <Routes>
             <Route
               path="/adminDashboard"

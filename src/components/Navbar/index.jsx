@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./index.css";
 import logo from "./../../assets/images/logo.png";
 import Button from "../Button";
-import { Link } from "react-router-dom";
-const Navbar = () => {
+import { Link, useLocation, useNavigate } from "react-router-dom";
+const Navbar = ({  }) => {
+  const navigate=useNavigate()
+  const location = useLocation();
+  const [user,setUser]=useState(JSON.parse(localStorage.getItem("logged_in"))|| [])
+
+
   return (
     <div className="d-flex space-between bg-white">
       <Link to={"/"}>
@@ -12,12 +17,30 @@ const Navbar = () => {
         </div>
       </Link>
       <div className="d-flex gap">
-        <Link to={`/auth`}>
+        {user.length !==0 ? (<>
+          <div>You Are logged in as {user.first_name}{" "}{user.last_name}</div>
           <Button
-            text={"Get Started"}
-            className={"primary-btn text-white bg-primary"}
-          />
-        </Link>
+              text={"logout"}
+              className={"primary-btn text-white danger"}
+              onClick={()=>{
+                localStorage.removeItem("logged_in")
+                // navigate("/",{state:{refresh:true}})
+                navigate("/")
+                setUser([])
+
+                
+              }}
+            />
+          </>
+        ) : (
+          <Link to={`/auth`}>
+            <Button
+              text={"Get Started"}
+              className={"primary-btn text-white bg-primary"}
+            />
+          </Link>
+        )}
+
         {/* <Link to={"auth/login"}>
           <Button
             text={"Log In"}
