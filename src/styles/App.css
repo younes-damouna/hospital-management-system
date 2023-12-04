@@ -1,0 +1,26 @@
+.aside{
+    background-color: white;
+    width: 300px;
+    /* height: 100vh; */
+    padding: 10px;
+}
+.menu-item{
+    background-color:gray;
+    padding: 10px;
+    color: white;
+    margin-block: 5px;
+    transition: all .3s ease-in-out;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 16px;
+}
+
+.menu-item.active{
+    background-color: var(--primary-bg);
+}
+.menu-item:active{
+    background-color: var(--primary-bg);
+}
+.menu-item:hover{
+opacity: .7;
+}

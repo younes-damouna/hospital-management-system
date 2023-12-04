@@ -6,7 +6,7 @@ const PatientDashboard = ({menu}) => {
     const [activeMainTab,setActiveMainTab]=useState("medication")
    
   return (
-    <div className='d-flex gap w-100'>
+    <div className='d-flex gap w-100  '>
         <div className="aside">
           <div className="menu">
             <div onClick={()=>{ setActiveMainTab("medication")}} className={`menu-item ${activeMainTab==="medication"?'active':''}`}>Medication History</div>

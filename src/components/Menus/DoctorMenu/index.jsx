@@ -6,14 +6,7 @@ const DoctorMenu = () => {
        
        
 
-        {/* 
-        doctor
-      View patient records
-      can be assigned to a patient
-      prescribe medications
-      view medications
-      manage appointments
-      manage calender */}
+      
     </div>
   )
 }
