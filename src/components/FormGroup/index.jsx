@@ -1,6 +1,6 @@
 import React from "react";
 import "./index.css";
-const FormGroup = ({ label, placeholder, className, type,required }) => {
+const FormGroup = ({ label, placeholder, className, type,required,onChange,name }) => {
   return (
     <div className="form-group d-flex column">
       <label htmlFor="email text-white ">{label}</label>
@@ -9,8 +9,9 @@ const FormGroup = ({ label, placeholder, className, type,required }) => {
         placeholder={placeholder}
         type={type}
         id={label}
-        name={label}
+        name={name}
         required={required}
+        onChange={(e)=>onChange(name,e.target.value)}
       />
     </div>
   );
