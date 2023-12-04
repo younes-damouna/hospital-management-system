@@ -3,7 +3,7 @@ import loginImg from "./../../../assets/images/login.svg";
 import "./index.css";
 import FormGroup from "../../FormGroup";
 import Button from "../../Button";
-const LoginForm = () => {
+const LoginForm = ({switchToRegister}) => {
   return (
     <div className=" d-flex space-between">
       <div className="form">
@@ -21,12 +21,18 @@ const LoginForm = () => {
          </div>
          
          <Button text={"Log In"} className={"primary-btn text-white bg-primary text-center fs-sm"}/>
-         
+         <p className="form-footer">
+          Don't have an account?{" "}
+          <span className="text-primary " onClick={() => {switchToRegister()}}>
+            Register!
+          </span>
+        </p>
         </form>
       </div>
       <div className="form-img">
         <img src={loginImg} alt="" />
       </div>
+
     </div>
   );
 };
