@@ -1,8 +1,8 @@
 import React from 'react'
 
-const DoctorPanel = () => {
+const DoctorPanel = ({activeMainTab}) => {
   return (
-    <div>DoctorPanel</div>
+    <div className='panel w-100'>DoctorPanel</div>
   )
 }
 
