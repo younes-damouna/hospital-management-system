@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import { request } from '../../../helpers/apiCalls/getMedications';
 
-const Appointments = ({user_id}) => {
+const Appointments = ({user_id,doctor,body}) => {
 
   const [appointments, setAppointments] = useState([]);
   useEffect(() => {
     const getAppointments = async () => {
       try {
         const responseAppointments = await request({
-          route: "get/appointmentsByPatient",
+          route: `${!doctor?"get/appointmentsByPatient":"get/appointmentsByDoctor"}`,
           method: "POST",
 
           body: {
-            patient_id: user_id,
+            ...body,
           },
         });
         setAppointments(responseAppointments);
@@ -27,18 +27,18 @@ const Appointments = ({user_id}) => {
     <table>
     <thead>
       <tr>
-        <th>Doctor Name</th>
+        <th>{doctor?"Patient":"Doctor"} Name</th>
         <th>Appointment Date</th>
         <th>Appointment Status</th>
         <th>Action</th>
       </tr>
     </thead>
     <tbody>
-      {appointments.map((app,index) => {
+      {Array.isArray(appointments)?appointments.map((app,index) => {
         return (
           <>
             <tr key={index}>
-              <td>{app.doctor_name}</td>
+              <td>{doctor?  app.patient_name:app.doctor_name}</td>
               <td>{app.date_time}</td>
               <td className="">{app.status_name}</td>
               <td>
@@ -48,7 +48,7 @@ const Appointments = ({user_id}) => {
             </tr>
           </>
         );
-      })}
+      }):""}
     </tbody>
   </table>
   )

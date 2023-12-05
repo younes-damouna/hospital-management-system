@@ -13,7 +13,7 @@ const RegisterDoctorForm = ({ children }) => {
   const [message, setMessage] = useState("");
   const [showMessage, setShowMessage] = useState(false);
   const [form, setForm] = useState({
-    role_id: 1,
+    role_id: 2,
     email: "",
     password: "",
     first_name: "",
@@ -65,7 +65,7 @@ const RegisterDoctorForm = ({ children }) => {
       setShowMessage(true);
     } else {
       setForm({
-        role_id: 1,
+        role_id: 2,
         email: "",
         password: "",
         first_name: "",

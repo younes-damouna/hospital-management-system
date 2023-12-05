@@ -85,7 +85,7 @@ const PatientPanel = ({ activeMainTab }) => {
             />
           </div>
           {activeTab === "View Appointments" ? (
-            <Appointments appointments={[]} user_id={patient_id} />
+            <Appointments appointments={[]} doctor={false} body={{patient_id:patient_id}} />
           ) : (
             <AppointmentForm />
           )}
