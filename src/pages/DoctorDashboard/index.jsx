@@ -1,8 +1,17 @@
 import React, { useState } from 'react'
 import DoctorPanel from '../../components/Panels/DoctorPanel'
+import { useNavigate } from 'react-router-dom'
+import { useEffect } from 'react'
 
 const DoctorDashboard = ({menu}) => {
-    const [activeMainTab,setActiveMainTab]=useState("")
+    const [activeMainTab,setActiveMainTab]=useState("View Patients")
+    const navigate=useNavigate();
+   useEffect(()=>{
+    if(localStorage.getItem("logged_in")=== null){
+      navigate("/")
+    }
+   },[])
+    console.log(localStorage.getItem("logged_in"));
     const menuItems=[
         {
             title:"View Patients"

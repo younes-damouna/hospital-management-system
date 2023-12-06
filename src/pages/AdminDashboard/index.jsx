@@ -3,7 +3,7 @@ import DoctorPanel from '../../components/Panels/DoctorPanel'
 import AdminPanel from '../../components/Panels/AdminPanel'
 
 const AdminDashboard = ({menu}) => {
-    const [activeMainTab,setActiveMainTab]=useState("")
+    const [activeMainTab,setActiveMainTab]=useState("Manage Doctors")
     const menuItems=[
         {
             title:"Manage Doctors"
@@ -11,9 +11,7 @@ const AdminDashboard = ({menu}) => {
         {
             title:"Manage Patients"
         },
-        {
-            title:"Manage Appointments"
-        },
+
         {
             title:"Manage Rooms"
         },

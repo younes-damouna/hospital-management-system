@@ -29,13 +29,14 @@ const LoginForm = ({switchToRegister}) => {
       body: form,
       route: "login",
       method: "POST",
+      isLogin:true
     });
 
     console.log(response);
     if (response.status === "logged in") {
       // save the login status in redux
       localStorage.setItem("logged_in", JSON.stringify(response));
-      if(response.role_id===1){
+      if(response.role_id===0){
         
         navigate("/AdminDashboard");
 
