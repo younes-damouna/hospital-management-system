@@ -6,10 +6,16 @@
 .table-container{
    
     margin-top: 10px;
+    width: 100%;
+    position: relative;
   
 }
 table{
     border-collapse: collapse;
+    /* border-radius: 10px; */
+    width: 100%;
+    table-layout:auto;
+    overflow-x: scroll ;
    
 
 }
@@ -20,9 +26,12 @@ td,th,tr{
     border: 1px solid;
     padding-inline: 10px;
     padding-block: 10px;
-    border-radius: 5px;
+    /* border-radius: 5px; */
 
 }
 .medication{
     width: 50%;
+}
+.menu-item{
+    width: 100%;
 }

@@ -4,6 +4,8 @@
     /* color: white; */
     cursor: pointer;
     transition: all .3s ease-in-out ;
+    border-radius: 10px !important;
+    
 }
 
 .primary-outline-btn {
@@ -15,6 +17,7 @@
     background-color: var(--primary-bg);
 }
 .primary-btn:hover{
+    
     opacity: .7;
     transition: all .3s ease-in-out ;
 

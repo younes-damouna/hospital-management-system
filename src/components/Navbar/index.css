@@ -4,3 +4,17 @@
 .logo{
     width: 100px;
 }
+.navbar{
+    margin-top: 10px;
+    margin-bottom: 30px;
+    padding: 20px 10px;
+   
+  
+    background-color: #f7f7f7;
+    border-radius: 20px;
+    box-shadow: 1px 1px 10px 5px gray;
+}
+.panel,.aside{
+    border-radius: 20px;
+    box-shadow: 1px 1px 10px 5px gray;
+}

@@ -17,7 +17,7 @@ const AdminDashboard = ({menu}) => {
         },
     ]
   return (
-    <div className='d-flex gap w-100'>
+    <div className='d-flex gap w-100 main'>
          
          <div className="aside">
           <div className="menu">
